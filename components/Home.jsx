@@ -1,9 +1,13 @@
-import { Text, View } from "react-native";
-
+import { ScrollView, Text } from "react-native";
+import { movies } from "../data.json";
+import MovieCard from "./MovieCard";
 export default function Home() {
 	return (
-		<View>
+		<ScrollView>
 			<Text>Movie Catalog</Text>
-		</View>
+			{movies.map((movie) => (
+				<MovieCard key={movie.id} {...movie} />
+			))}
+		</ScrollView>
 	);
 }
